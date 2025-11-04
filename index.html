@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting to App...</title>
+    <meta name="robots" content="noindex, follow">
+    <script>
+        // Your Adjust OneLink URL
+        const adjustOneLink = "https://asiacell.go.link/3LnCX";
+        
+        // Use a simple device check to confirm the user is on a mobile platform.
+        // This ensures desktop users don't get stuck in a weird loop, 
+        // though the Adjust link will handle them fine too.
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        const isMobile = /android|iphone|ipad|ipod|windows phone/i.test(userAgent);
+
+        if (isMobile) {
+            // For mobile users, redirect them immediately to the Adjust link.
+            // This transfers control to Adjust, which will then send them to the correct store.
+            window.location.replace(adjustOneLink); 
+        } else {
+            // For desktop/other users, redirect them to the Adjust link as well.
+            // Adjust will then send them to the desktop fallback URL defined in your Adjust settings.
+            window.location.replace(adjustOneLink); 
+        }
+    </script>
+</head>
+<body>
+    <p>If you are not redirected automatically, please visit your app store.</p>
+</body>
+</html>
